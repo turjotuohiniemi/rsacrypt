@@ -12,9 +12,8 @@ on the command line should do the trick.
 
 # How to use it
 
-1. Find two prime numbers that are relatively close to each other.
+* Find two prime numbers that are relatively close to each other.
 For example:
-
 ```
 	./rsacrypt -p 1500
 	Testing 1501... not prime
@@ -32,27 +31,28 @@ For example:
 	Testing 1709... is a prime
 ```
 
-2. Generate your public and private keys. Using the primes found above,
+* Generate your public and private keys. Using the primes found above,
 this would be:
+
 ```
 	./rsacrypt -g 1511 1709
 	Public key:  e = 3, n = 2582299
 	Private key: d = 1719387
 ```
 
-3. Encrypt the file you want using the public key. For example:
+* Encrypt the file you want using the public key. For example:
 
 ```
 	./rsacrypt -e 3 2582299 README.md
 ```
 
-4. Notice how the file looks like rubbish.
+* Notice how the file looks like rubbish.
 
 ```
 	od -Ax -tc README.md | head
 ```
 
-5. Decrypt it
+* Decrypt it
 
 ```
 	./rsacrypt -d 1719387 2582299 README.md
